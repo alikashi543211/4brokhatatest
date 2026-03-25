@@ -77,9 +77,9 @@
 
 @push('scripts')
 <script>
-const labels = @json(collect($chartData).pluck('label'));
-const amad = @json(collect($chartData).pluck('amad'));
-const khar = @json(collect($chartData).pluck('khar'));
+const labels = @json(collect($chartData)->pluck('label'));
+const amad = @json(collect($chartData)->pluck('amad'));
+const khar = @json(collect($chartData)->pluck('khar'));
 new Chart(document.getElementById('monthlyChart'), {
     type: 'bar',
     data: {
