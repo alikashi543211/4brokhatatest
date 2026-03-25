@@ -7,9 +7,15 @@
         <small class="text-muted"><i class="bi bi-calendar me-1"></i>{{ $statement->statement_date?->format('d M Y') }}</small>
     </div>
     <div class="d-flex gap-2">
-        <a href="{{ route('statement.show', $statement) }}" class="btn btn-outline-secondary btn-sm" target="_blank"><i class="bi bi-eye me-1"></i>Public View</a>
-        <a href="{{ route('admin.statements.edit', $statement) }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil me-1"></i>Edit</a>
-        <a href="{{ route('admin.statements.index') }}" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left me-1"></i>Back</a>
+        <a href="{{ route('statement.show', $statement) }}" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center" target="_blank">
+            <i class="bi bi-eye me-1"></i>Public View
+        </a>
+        <a href="{{ route('admin.statements.edit', $statement) }}" class="btn btn-warning btn-sm d-inline-flex align-items-center">
+            <i class="bi bi-pencil me-1"></i>Edit
+        </a>
+        <a href="{{ route('admin.statements.index') }}" class="btn btn-outline-secondary btn-sm d-inline-flex align-items-center">
+            <i class="bi bi-arrow-left me-1"></i>Back
+        </a>
     </div>
 </div>
 
@@ -45,7 +51,7 @@
         <div class="card">
             <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
                 <span><i class="bi bi-arrow-up-circle me-2"></i>Kharcha (Expenses)</span>
-                <button class="btn btn-sm btn-light text-danger" data-bs-toggle="modal" data-bs-target="#addKharchaModal">
+                <button class="btn btn-sm btn-light text-danger px-2 py-1 text-nowrap" data-bs-toggle="modal" data-bs-target="#addKharchaModal">
                     <i class="bi bi-plus"></i> Add
                 </button>
             </div>
@@ -60,7 +66,7 @@
                             <td class="text-end fw-semibold">{{ number_format($t->amount, 2) }}</td>
                             <td class="text-nowrap">
                                 <button type="button"
-                                    class="btn btn-xs btn-outline-warning p-0 px-1 js-edit-txn"
+                                    class="btn btn-sm btn-outline-warning p-0 px-1 js-edit-txn"
                                     data-id="{{ $t->id }}"
                                     data-srno="{{ $t->sr_no }}"
                                     data-description="{{ $t->description }}"
@@ -71,7 +77,7 @@
                                 </button>
                                 <form action="{{ route('admin.transactions.destroy', $t) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?')">
                                     @csrf @method('DELETE')
-                                    <button class="btn btn-xs btn-outline-danger p-0 px-1"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger p-0 px-1"><i class="bi bi-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
@@ -91,7 +97,7 @@
         <div class="card">
             <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
                 <span><i class="bi bi-arrow-down-circle me-2"></i>Amad (Income)</span>
-                <button class="btn btn-sm btn-light text-success" data-bs-toggle="modal" data-bs-target="#addAmadModal">
+                <button class="btn btn-sm btn-light text-success px-2 py-1 text-nowrap" data-bs-toggle="modal" data-bs-target="#addAmadModal">
                     <i class="bi bi-plus"></i> Add
                 </button>
             </div>
@@ -106,7 +112,7 @@
                             <td class="text-end fw-semibold text-success">{{ number_format($t->amount, 2) }}</td>
                             <td class="text-nowrap">
                                 <button type="button"
-                                    class="btn btn-xs btn-outline-warning p-0 px-1 js-edit-txn"
+                                    class="btn btn-sm btn-outline-warning p-0 px-1 js-edit-txn"
                                     data-id="{{ $t->id }}"
                                     data-srno="{{ $t->sr_no }}"
                                     data-description="{{ $t->description }}"
@@ -117,7 +123,7 @@
                                 </button>
                                 <form action="{{ route('admin.transactions.destroy', $t) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete?')">
                                     @csrf @method('DELETE')
-                                    <button class="btn btn-xs btn-outline-danger p-0 px-1"><i class="bi bi-trash"></i></button>
+                                    <button class="btn btn-sm btn-outline-danger p-0 px-1"><i class="bi bi-trash"></i></button>
                                 </form>
                             </td>
                         </tr>
